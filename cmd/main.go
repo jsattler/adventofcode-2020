@@ -22,17 +22,27 @@ func main(){
 		first, err := strconv.Atoi(s1)
 
 		if err != nil { log.Fatal(err) }
-
+		if first > 2020 { continue }
 		// iterate over array start from i + 1
-		for _, s2 := range strArr[i+1:] {
+		for j, s2 := range strArr[i+1:] {
 
 			second, err := strconv.Atoi(s2)
 
 			if err != nil { log.Fatal(err) }
 
-			if first + second == 2020 {
-				fmt.Printf("Found matching values (%d, %d) product: %d\n", first, second, first * second)
-				return
+			if first + second > 2020 {
+				continue
+			}
+			// iterate over array start from j + 1
+			for _, s3 := range strArr[j+1:]{
+				third, err := strconv.Atoi(s3)
+
+				if err != nil { log.Fatal(err) }
+
+				if first + second + third == 2020 {
+					fmt.Printf("Found matching values (%d, %d, %d) product: %d\n", first, second, third, first * second * third)
+					return
+				}
 			}
 		}
 	}
