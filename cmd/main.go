@@ -17,14 +17,14 @@ func main(){
 	strArr := strings.Split(string(content), "\n")
 
 	// iterate over array
-	for i, s1 := range strArr {
+	for i, s1 := range strArr[:len(strArr)-1] {
 
 		first, err := strconv.Atoi(s1)
 
 		if err != nil { log.Fatal(err) }
 		if first > 2020 { continue }
 		// iterate over array start from i + 1
-		for j, s2 := range strArr[i+1:] {
+		for j, s2 := range strArr[i+1:len(strArr)-1] {
 
 			second, err := strconv.Atoi(s2)
 
