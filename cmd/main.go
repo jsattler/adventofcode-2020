@@ -51,6 +51,10 @@ func parsePolicy(pStr string) *Policy {
 }
 
 func (p *Policy) isValid() bool {
-	count := strings.Count(p.pwd, p.char)
-	return count >= p.min && count <= p.max
+	if p.min - 1 < 0 || p.min > len(p.pwd) || p.max - 1 < 0 || p.max > len(p.pwd) {
+		return false
+	}
+	first := string(p.pwd[p.min - 1])
+	second := string(p.pwd[p.max - 1])
+	return (first == p.char) != (second == p.char)
 }
