@@ -28,7 +28,7 @@ func Day2Part1(){
 		policy := parsePolicy(s)
 		if policy.isValid() { counter++ }
 	}
-	fmt.Printf("%d passwords are valid\n", counter)
+	fmt.Printf("solution day 2 part 1: %d\n", counter)
 }
 func parsePolicy(pStr string) *policy {
 	splitBySpace := strings.Split(pStr, " ")

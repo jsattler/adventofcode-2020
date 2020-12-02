@@ -31,7 +31,7 @@ func Day1Part1(){
 			if err != nil { log.Fatal(err) }
 
 			if first + second == 2020 {
-				fmt.Printf("Found matching values (%d, %d) product: %d\n", first, second, first * second)
+				fmt.Printf("solution day 1 part 1: %d\n", first * second)
 				return
 			}
 		}
