@@ -10,5 +10,6 @@ func main(){
 	aoc.Day3Part1()
 	aoc.Day3Part2()
 	aoc.Day4Part1()
+	aoc.Day4Part2()
 }
 
