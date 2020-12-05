@@ -4,21 +4,21 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"math"
+	"sort"
 	"strings"
 )
 
-func Day5Part1() {
+func Day5Part2() {
 	content, err := ioutil.ReadFile("assets/input-5")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	passes := strings.Split(string(content), "\n")
+	var myId int
 
-	highest := math.MinInt32
-
-	for _ , pass := range passes{
+	ids := make([]int, len(passes))
+	for i , pass := range passes {
 		row := 0
 		col := 0
 		for _, v := range pass {
@@ -36,12 +36,22 @@ func Day5Part1() {
 			}
 		}
 
-		if newHigh := row * 8 + col; newHigh > highest {
-			highest = newHigh
+		// insert id; unsorted
+		ids[i] = row * 8 + col
+	}
+
+	// sort array
+	sort.Ints(ids)
+
+	for i, id := range ids {
+		// check if the next id is + 2 away to find missing seat
+		if id + 2 == ids[i+1] {
+			myId = id + 1
+			break
 		}
 	}
 
-	fmt.Printf("solution day 5 part 1: %d\n", highest)
+	fmt.Printf("solution day 5 part 2: %d\n", myId)
 
 }
 
