@@ -20,11 +20,9 @@ func Day6Part2() {
 		chars := make(map[rune]int)
 		groupSize :=  strings.Count(group, "\n") + 1
 		group := strings.ReplaceAll(group, "\n", "")
-		fmt.Println(group, groupSize)
 		// iterate over each rune within the group
 		for _, char := range group {
 			chars[char]++
-			fmt.Printf("Found entries %d for rune %s\n", chars[char], string(char))
 		}
 
 		for _, v := range chars {
