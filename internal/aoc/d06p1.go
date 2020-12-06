@@ -7,14 +7,14 @@ import (
 	"strings"
 )
 
-func Day6Part2() {
+func Day6Part1() {
 	var counter int
 	content, err := ioutil.ReadFile("assets/input-6")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	groups:= strings.Split(string(content), "\n\n")
+	groups := strings.Split(string(content), "\n\n")
 
 	for _, group := range groups {
 		chars := make(map[rune]bool)
@@ -27,8 +27,6 @@ func Day6Part2() {
 		counter += len(chars)
 	}
 
-
 	fmt.Printf("solution day 6 part 1: %d\n", counter)
 
 }
-

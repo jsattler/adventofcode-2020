@@ -2,7 +2,7 @@ package main
 
 import "github.com/j-sattler/adventofcode-2020/internal/aoc"
 
-func main(){
+func main() {
 	aoc.Day1Part1()
 	aoc.Day1Part2()
 	aoc.Day2Part1()
@@ -13,6 +13,5 @@ func main(){
 	aoc.Day4Part2()
 	aoc.Day5Part1()
 	aoc.Day5Part2()
-	aoc.Day6Part2()
+	aoc.Day6Part1()
 }
-
