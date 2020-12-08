@@ -8,7 +8,6 @@ import (
 	"strings"
 )
 
-var accumulator = 0
 
 const (
 	acc = "acc" // accumulate - increase/decrease accumulator with given amount
@@ -17,6 +16,7 @@ const (
 )
 
 func Day8Part1() {
+	var accumulator = 0
 
 	input, err := ioutil.ReadFile("assets/input-8")
 	if err != nil {
