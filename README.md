@@ -6,3 +6,4 @@
 * [**2020-12-4**](https://adventofcode.com/2020/day/4)
 * [**2020-12-5**](https://adventofcode.com/2020/day/5)
 * [**2020-12-6**](https://adventofcode.com/2020/day/6)
+* [**2020-12-7**](https://adventofcode.com/2020/day/7)
