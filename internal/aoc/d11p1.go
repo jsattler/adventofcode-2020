@@ -13,7 +13,6 @@ const (
 	empty    = 'L'
 )
 
-var stateChange = true
 
 // (.) floor
 // (L) empty seat
@@ -30,6 +29,7 @@ func Day11Part1() {
 		log.Fatal(err)
 	}
 
+	var stateChange = true
 	currentState := strings.Split(string(input), "\n")
 
 	nextState := make([]string, len(currentState))
