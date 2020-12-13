@@ -22,4 +22,6 @@ func main() {
 	aoc.Day9Part1()
 	aoc.Day9Part2()
 	aoc.Day10Part1()
+	aoc.Day10Part2()
+
 }
