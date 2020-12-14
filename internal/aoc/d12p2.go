@@ -38,11 +38,10 @@ func Day12Part2() {
 		ship.navigateWaypoint(a)
 	}
 
-	fmt.Printf("Solution day 12 part 1: %d\n", intAbs(ship.westEast) + intAbs(ship.southNorth))
+	fmt.Printf("Solution day 12 part 1: %d\n", intAbs(ship.westEast)+intAbs(ship.southNorth))
 }
 
 func (s *Ship) navigateWaypoint(a Action) {
-	fmt.Println(string(a.action), a.value)
 	switch a.action {
 	case moveNorth: // move waypoint north
 		s.waypoint.southNorth += a.value
@@ -90,5 +89,4 @@ func (s *Ship) forward(val int) {
 	// move the ship to the waypoint by val times
 	s.southNorth += s.waypoint.southNorth * val
 	s.westEast += s.waypoint.westEast * val
-
 }
