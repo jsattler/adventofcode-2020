@@ -28,6 +28,7 @@ type Ship struct {
 	currentDirection int
 	southNorth       int // south is negative north is positive
 	westEast         int // west is negative east is positive
+	waypoint         Waypoint
 }
 
 type Action struct {
@@ -50,7 +51,6 @@ func Day12Part1() {
 		ship.execute(action)
 	}
 
-	fmt.Println(ship)
 	fmt.Printf("Solution day 12 part 1: %d\n", intAbs(ship.westEast)+intAbs(ship.southNorth))
 }
 
