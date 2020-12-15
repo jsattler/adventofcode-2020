@@ -38,7 +38,7 @@ func Day12Part2() {
 		ship.navigateWaypoint(a)
 	}
 
-	fmt.Printf("Solution day 12 part 1: %d\n", intAbs(ship.westEast)+intAbs(ship.southNorth))
+	fmt.Printf("Solution day 12 part 2: %d\n", intAbs(ship.westEast)+intAbs(ship.southNorth))
 }
 
 func (s *Ship) navigateWaypoint(a Action) {
