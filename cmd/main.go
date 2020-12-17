@@ -44,5 +44,5 @@ func main() {
 	aoc.Day13Part2()
 
 	aoc.Day14Part1()
-
+	aoc.Day14Part2()
 }

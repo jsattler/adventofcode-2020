@@ -8,34 +8,44 @@ import (
 	"strings"
 )
 
-func Day14Part1() {
+func Day14Part2() {
 	input, err := ioutil.ReadFile("assets/input-14")
+
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	splitByLine := strings.Split(string(input), "\n")
-	res := inspectProgram(splitByLine)
-	fmt.Printf("Solution day 14 part 1: %d\n", res)
+
+	solution := inspectProgramV2(splitByLine)
+	fmt.Printf("Solution day 14 part 2: %d\n", solution)
+
 }
 
-func inspectProgram(input []string) int {
+func inspectProgramV2(input []string) int {
 	memory := make(map[int]int)
-	var maskIndex map[int]int
+	floats := make([]int, 0)
+	maskBits := 0
 	for _, line := range input {
+
 		if strings.HasPrefix(line, "mask") {
-			maskIndex = make(map[int]int)
+			maskBits = 0
+			floats = make([]int, 0)
 			maskStr := strings.ReplaceAll(line, "mask = ", "")
 			index := 0
 			for i := len(maskStr) - 1; i >= 0; i-- {
 				if maskStr[i] == 'X' {
+					// save the index of all floats
+					floats = append(floats, index)
 					index++
 					continue
 				}
+
 				val, err := strconv.Atoi(string(maskStr[i]))
 				if err != nil {
 					log.Fatal(err)
 				}
-				maskIndex[index] = val
+				maskBits = maskBits | (val << index)
 				index++
 			}
 
@@ -46,13 +56,10 @@ func inspectProgram(input []string) int {
 			if err != nil {
 				log.Fatal(err)
 			}
-
-			for n, x := range maskIndex {
-				// clear the nth bit then set to 1 or 0
-				val = setBitNToX(val, n, x)
+			memAddrs := maskAddress(memAddr, floats, maskBits)
+			for addr, _ := range memAddrs {
+				memory[addr] = val
 			}
-
-			memory[memAddr] = val
 		}
 	}
 	sum := 0
@@ -62,6 +69,22 @@ func inspectProgram(input []string) int {
 	return sum
 }
 
-func setBitNToX(val, n, x int) int {
-	return (val & (^(1 << n))) | (x << n)
+func maskAddress(addr int, floats []int, maskBits int) map[int]bool {
+	addrs := make(map[int]bool)
+
+	addr |= maskBits
+
+	for _, fi := range floats {
+		mask := ^(1 << fi)
+		addr &= mask
+	}
+
+	addrs[addr] = true
+	for _, floatIndex := range floats {
+		for ad, _ := range addrs {
+			ad = ad | (1 << floatIndex)
+			addrs[ad] = true
+		}
+	}
+	return addrs
 }
