@@ -3,6 +3,7 @@ package aocparse
 import (
 	"log"
 	"strconv"
+	"strings"
 )
 
 // ParseInts converts an
@@ -18,5 +19,6 @@ func ParseInts(str []string) (res []int) {
 }
 
 func SplitInts(str string, split string) []int {
-	return nil
+	strings := strings.Split(str, split)
+	return ParseInts(strings)
 }
