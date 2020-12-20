@@ -15,3 +15,4 @@
 * [**2020-12-13**](https://adventofcode.com/2020/day/13)
 * [**2020-12-14**](https://adventofcode.com/2020/day/14)
 * [**2020-12-15**](https://adventofcode.com/2020/day/15)
+* [**2020-12-16**](https://adventofcode.com/2020/day/16)
