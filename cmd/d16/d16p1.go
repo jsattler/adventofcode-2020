@@ -18,9 +18,7 @@ type FieldPolicy struct {
 	intervals []Interval
 }
 
-type Ticket struct {
-	values []int
-}
+type Ticket []int
 
 func Day16Part1() {
 	input := aocio.ReadFileSplit("../../assets/input-16", "\n\n")
@@ -39,7 +37,7 @@ func isBetween(interval Interval, value int) bool {
 }
 func findInvalidValues(tickets []Ticket, policies []FieldPolicy) (invalid []int) {
 	for _, t := range tickets {
-		for _, v := range t.values {
+		for _, v := range t {
 			isValid := false
 			for _, p := range policies {
 				if isBetween(p.intervals[0], v) || isBetween(p.intervals[1], v) {
@@ -62,7 +60,7 @@ func parseTickets(in string) (tickets []Ticket) {
 			continue
 		}
 		values := aocparse.SplitInts(l, ",")
-		tickets = append(tickets, Ticket{values})
+		tickets = append(tickets, values)
 	}
 	return
 }
