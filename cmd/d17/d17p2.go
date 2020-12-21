@@ -29,7 +29,7 @@ func Day17Part2() {
 	for i := 0; i < 6; i++ {
 		active = active.simulateHyperCube()
 	}
-	fmt.Printf("Solution day 17 part 1: %d\n", len(active))
+	fmt.Printf("Solution day 17 part 2: %d\n", len(active))
 }
 
 func (cs HyperCubes) simulateHyperCube() (nextActive HyperCubes) {
