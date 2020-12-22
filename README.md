@@ -17,3 +17,4 @@
 * [**2020-12-15**](https://adventofcode.com/2020/day/15)
 * [**2020-12-16**](https://adventofcode.com/2020/day/16)
 * [**2020-12-17**](https://adventofcode.com/2020/day/17)
+* [**2020-12-18**](https://adventofcode.com/2020/day/18)
