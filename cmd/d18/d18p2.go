@@ -12,7 +12,7 @@ var opa2 = map[string]struct {
 	rAssoc     bool
 }{
 	"*": {0, false}, // MUL and PLUS have same precedence and are not right associative
-	"+": {1, false}, // MUL and PLUS have same precedence and are not right associative
+	"+": {1, false},
 }
 
 // Using the shunting yard algorithm with reverse polish notation to evaluate expressions
@@ -29,8 +29,8 @@ func Day18Part2() {
 	fmt.Printf("Solution day 18 part 2: %d\n", int(sum))
 }
 
-
 // https://rosettacode.org/wiki/Parsing/Shunting-yard_algorithm
+// https://brilliant.org/wiki/shunting-yard-algorithm/
 // with adaptions to follow precedence rules
 func shuntingYard2(e string) (rpn string) {
 	var stack []string
@@ -77,7 +77,7 @@ func shuntingYard2(e string) (rpn string) {
 
 // https://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm
 // with adaptions to follow precedence rules
-func evaluateRPN2(input string) (res float64){
+func evaluateRPN2(input string) (res float64) {
 	var stack []float64
 	for _, tok := range strings.Fields(input) {
 		switch tok {
